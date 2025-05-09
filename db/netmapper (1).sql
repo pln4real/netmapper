@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : ven. 25 avr. 2025 à 18:10
+-- Généré le : ven. 09 mai 2025 à 17:33
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.0.30
 
@@ -63,6 +63,31 @@ CREATE TABLE `reseaux` (
   `date_creation` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `utilisateur`
+--
+
+CREATE TABLE `utilisateur` (
+  `id` int(11) NOT NULL,
+  `nom` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `mot_de_passe` varchar(255) NOT NULL,
+  `date_creation` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `utilisateur`
+--
+
+INSERT INTO `utilisateur` (`id`, `nom`, `email`, `mot_de_passe`, `date_creation`) VALUES
+(1, 'issa', 'issa@gmail.com', '$2y$10$079ESk48x18nU2AOxl4WyudGJFgrclibKs2iDEhUc2kXXDKW/LAda', '2025-05-08 15:00:01'),
+(2, 'test', 'test@gmail.com', '$2y$10$wi5dnoWdgS9R32j.m.msBOtDhxjqIifbox4kNtleLMBhUpxuOXO0a', '2025-05-08 16:02:47'),
+(3, 'test1', 'test1@gmail.com', '$2y$10$WehT1vysNEEK7m1rXE4XwOWu.iXKQOcLePtuuUJYB13JR5AwkRcnG', '2025-05-08 16:07:26'),
+(4, 'petit', 'petit@gmail.com', '$2y$10$RyMzjN2uz80jjyLqBwWZOe5Fr7L2nGbummmTdM6z61OOwI0r1S4Su', '2025-05-08 17:35:22'),
+(5, 'mansour', 'mansour@gmail.com', '$2y$10$S8K5EvYGJdyGSNpsOZR7EeQ988uEPQbJ6LfaOqHPJ0jXegIWNcofS', '2025-05-09 11:04:58');
+
 --
 -- Index pour les tables déchargées
 --
@@ -88,6 +113,13 @@ ALTER TABLE `reseaux`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `utilisateur`
+--
+ALTER TABLE `utilisateur`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
 -- AUTO_INCREMENT pour les tables déchargées
 --
 
@@ -108,6 +140,12 @@ ALTER TABLE `points_acces`
 --
 ALTER TABLE `reseaux`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `utilisateur`
+--
+ALTER TABLE `utilisateur`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Contraintes pour les tables déchargées
