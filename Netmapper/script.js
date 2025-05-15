@@ -399,13 +399,15 @@ function redrawLinks() {
     // 🔁 Si le lien est entre un routeur et un switch
     } else if (
       (from.dataset.type === "routeur" && to.dataset.type === "switch") ||
-      (from.dataset.type === "switch" && to.dataset.type === "switch")||
-      (from.dataset.type === "routeur" && to.dataset.type === "router")
-
+      (from.dataset.type === "switch" && to.dataset.type === "switch") ||
+      (from.dataset.type === "switch" && to.dataset.type === "routeur") ||
+      (from.dataset.type === "routeur" && to.dataset.type === "routeur") ||
+      (from.dataset.type === "routeur" && to.dataset.type === "switch") ||
+      (from.dataset.type === "switch" && to.dataset.type === "routeur")
     ) {
       color = "gray";
     }
-    
+
     line.style.backgroundColor = color;
     
     canvas.appendChild(line);
